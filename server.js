@@ -5,7 +5,7 @@ const fs = require('fs');
 
 var cors = require('cors'); 
 
-const port = process.env.PORT || 4999;
+const port = process.env.PORT || 80;
 
 const app = express();
 
