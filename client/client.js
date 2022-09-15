@@ -16,7 +16,7 @@ function registerPush(appPubkey) {
             .then(function(subscription) {
                 console.log('post subscription : ', subscription);
                 mysubscription = subscription;
-                return fetch('https://kimhyungil.github.io/client/push/subscribe', {
+                return fetch('https://kimhyungil.github.io/push/subscribe', {
                     method: 'post',
                     headers: { 'Content-type': 'application/json' },
                     body: JSON.stringify({ subscription: subscription })
@@ -55,7 +55,7 @@ function urlBase64ToUint8Array(base64String) {
 
 document.querySelector('#subscribe').onclick = () =>{
     if (navigator.serviceWorker) {
-        fetch('https://kimhyungil.github.io/client/push/key')
+        fetch('https://kimhyungil.github.io/push/key')
         .then( e => e.json()).then( (result) =>{
             document.querySelector('#receivedPubKey').innerText = result.key;
             registerPush(result.key);
